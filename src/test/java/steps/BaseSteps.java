@@ -15,7 +15,7 @@ public class BaseSteps {
     }
 
     @Given("user navigates to {string}")
-    public void userNavigatesTo(String url) {
+    public void userNavigatesTo_(String url) {
         System.out.println(url);
         driver.get(url);
     }
