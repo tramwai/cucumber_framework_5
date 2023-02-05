@@ -1,7 +1,9 @@
 Feature: TechGlobal Training Functionalities
 
-  Scenario: Validate dynamic tables pop-up window
+  Background:
     Given user navigates to "https://techglobal-training.netlify.app/"
+
+  Scenario: Validate dynamic tables pop-up window
     When user clicks on Practices dropdown in the header
     And user selects the "Frontend Testing" option
     And user selects the "Dynamic Tables" option
@@ -12,7 +14,6 @@ Feature: TechGlobal Training Functionalities
     Then user should not see Add New Product pop-up
 
   Scenario: Validate Alerts card page
-    Given user navigates to "https://techglobal-training.netlify.app/"
     When user clicks on Practices dropdown in the header
     And user selects the "Frontend Testing" option
     And user selects the "Alerts" option
