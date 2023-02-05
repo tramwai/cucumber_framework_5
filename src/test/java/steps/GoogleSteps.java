@@ -42,7 +42,9 @@ public class GoogleSteps {
 
     @Then("user should see results are more than {int}")
     public void userShouldSeeResultsAreMoreThan(int result) {
-    // About 11,090,000,000 results (0.69 seconds)
+
+        // About 11,090,000,000 results (0.69 seconds)
+        // {"About", "11,090,000,000", "results", "(0.69", "seconds)"}
         Assert.assertTrue(TextHandler.getLong(googleSearchPage.resultBar.getText().split(" ")[1]) > result);
     }
 }
