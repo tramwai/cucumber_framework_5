@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import pages.TechGlobalAlertsPage;
 import pages.TechGlobalDynamicTablesPage;
 import pages.TechGlobalFrontendTestingHomePage;
+import pages.TechGlobalLoginFormPage;
 import utils.AlertHandler;
 import utils.Driver;
 import utils.Waiter;
@@ -22,13 +23,15 @@ public class TechGlobalSteps {
     TechGlobalFrontendTestingHomePage techGlobalFrontendTestingHomePage;
     TechGlobalDynamicTablesPage techGlobalDynamicTablesPage;
     TechGlobalAlertsPage techGlobalAlertsPage;
+    TechGlobalLoginFormPage techGlobalLoginFormPage;
 
     @Before
-    public void setup(){
+    public void setup() {
         driver = Driver.getDriver();
         techGlobalFrontendTestingHomePage = new TechGlobalFrontendTestingHomePage();
         techGlobalDynamicTablesPage = new TechGlobalDynamicTablesPage();
         techGlobalAlertsPage = new TechGlobalAlertsPage();
+        techGlobalLoginFormPage = new TechGlobalLoginFormPage();
     }
 
     @When("user clicks on Practices dropdown in the header")
@@ -44,6 +47,7 @@ public class TechGlobalSteps {
                 break;
             case "Dynamic Tables":
             case "Alerts":
+            case "Login Form":
                 techGlobalFrontendTestingHomePage.clickOnCard(option);
                 break;
             default:
@@ -60,13 +64,17 @@ public class TechGlobalSteps {
             case "Alerts":
                 Assert.assertEquals(headerText, techGlobalAlertsPage.headingText.getText());
                 break;
+            case "Login Form":
+                Assert.assertEquals(headerText, techGlobalLoginFormPage.headingText.getText());
+                break;
             default:
                 throw new NotFoundException("The heading text is not defined!");
         }
     }
+
     @When("user clicks the {string} button")
     public void userClicksTheButton(String argument) {
-        switch (argument){
+        switch (argument) {
             case "ADD PRODUCT":
                 techGlobalDynamicTablesPage.addProductButton.click();
                 break;
@@ -87,7 +95,7 @@ public class TechGlobalSteps {
     public void userShouldNotSeeAddNewProductPopUp() {
         try {
             Assert.assertFalse(techGlobalDynamicTablesPage.modalCardTitle.isDisplayed());
-        }catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             Assert.assertTrue(true);
         }
     }
@@ -116,5 +124,27 @@ public class TechGlobalSteps {
         Assert.assertEquals(alertMessage, AlertHandler.getAlertText());
         Waiter.pause(2);
         AlertHandler.acceptAlert();
+    }
+
+    @When("user enters username as {string} and password as {string}")
+    public void userEntersUsernameAsAndPasswordAs(String username, String password) {
+        techGlobalLoginFormPage.usernameInput.sendKeys(username);
+        techGlobalLoginFormPage.passwordInput.sendKeys(password);
+        techGlobalLoginFormPage.loginButton.click();
+    }
+
+    @Then("user should see a {string} message")
+    public void userShouldSeeAMessage(String errorMessage) {
+        switch (errorMessage) {
+            case "Invalid Username entered!":
+            case "Invalid Password entered!":
+                Assert.assertEquals(errorMessage, techGlobalLoginFormPage.errorText.getText());
+                break;
+            case "You are logged in":
+                Assert.assertEquals(errorMessage, techGlobalLoginFormPage.successLoginText.getText());
+                break;
+            default:
+                throw new NotFoundException("The error message is not defined properly in the feature file");
+        }
     }
 }
