@@ -1,9 +1,11 @@
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/pages/TechGlobalFrontendTestingHomePage.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/steps/Hooks.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/pages/TechGlobalBasePage.java
+/Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/pages/WikipediaPage.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/steps/TechGlobalSteps.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/utils/Driver.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/utils/AlertHandler.java
+/Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/steps/WikipediaSteps.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/utils/Waiter.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/utils/WindowHandler.java
 /Users/techglobal/IdeaProjects/cucumber_framework_5/src/test/java/steps/GoogleSteps.java

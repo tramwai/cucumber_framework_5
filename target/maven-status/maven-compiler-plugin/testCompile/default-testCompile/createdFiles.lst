@@ -7,7 +7,9 @@ utils/Waiter.class
 pages/TechGlobalBasePage.class
 steps/Hooks.class
 utils/ConfigReader.class
+pages/WikipediaPage.class
 utils/TextHandler.class
+steps/WikipediaSteps.class
 runners/Runner.class
 utils/AlertHandler.class
 pages/TechGlobalFrontendTestingHomePage.class
