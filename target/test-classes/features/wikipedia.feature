@@ -19,5 +19,4 @@ Feature: Wikipedia search functionality
     @WikiLanguages
     Scenario: Validate Wikipedia main languages
       Then user should see below languages around the logo
-      Then user should see below languages around the logo
         | English | Русский | 日本語 | Deutsch | Français | Español | Italiano | 中文 | فارسی | Polski |
